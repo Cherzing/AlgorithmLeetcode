@@ -1,6 +1,5 @@
 package cn.cherzing.AlgorithmDesign;
 
-import java.util.Scanner;
 
 /**
  * @author Cherzing
