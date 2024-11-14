@@ -16,7 +16,6 @@ public class Sort {
 
         sortSolution.selectionSort(arr);
 
-
         sortSolution.bubbleSort(arr);
 
 
