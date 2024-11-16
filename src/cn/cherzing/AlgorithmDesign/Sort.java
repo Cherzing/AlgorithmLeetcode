@@ -8,24 +8,21 @@ import org.junit.Test;
  * @description Sort
  */
 public class Sort {
+    int[] arr = {64, 25, 12, 22, 11, 22, 33, 23, 45, 34, 76, 5, 4, 8, 98,
+            30, 90, 32, 78, 123, 345, 765, 986, 3436, 2126,65, 24, 132, 24, 121, 212, 373, 273, 485, 345, 716, 50, 49, 834, 9548,
+            3130, 970, 312, 178, 1253, 3545, 9765, 1986, 13436, 12126};
+    int n = arr.length;
+
     @Test
-    public void testSort() {
-        int[] arr = {64, 25, 12, 22, 11, 22};
-        int n = arr.length;
+    public void testSelectionSort() {
         SortSolution sortSolution = new SortSolution();
-
         sortSolution.selectionSort(arr);
+    }
 
-        sortSolution.bubbleSort(arr);
-
-
-        sortSolution.insertionSort(arr);
-
-
+    @Test
+    public void testQuickSort() {
+        SortSolution sortSolution = new SortSolution();
         sortSolution.quickSort(arr, 0, n - 1);
-
-
-        sortSolution.mergeSort(arr, 0, n - 1);
     }
 }
 
@@ -132,7 +129,6 @@ class SortSolution {
             // 如果当前元素小于或等于pivot
             if (arr[j] <= pivot) {
                 i++;
-
                 // 交换arr[i]和arr[j]
                 int temp = arr[i];
                 arr[i] = arr[j];
@@ -143,7 +139,6 @@ class SortSolution {
         int temp = arr[i + 1];
         arr[i + 1] = arr[high];
         arr[high] = temp;
-
         return i + 1;
     }
 
