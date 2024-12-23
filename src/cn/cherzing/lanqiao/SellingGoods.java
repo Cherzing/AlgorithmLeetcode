@@ -12,7 +12,6 @@ import java.util.Scanner;
  */
 public class SellingGoods {
     public static void main(String[] args) {
-        int count = 0;
         Scanner scanner = new Scanner(System.in);
         int num = scanner.nextInt();
         int[] records = new int[num];
@@ -20,24 +19,26 @@ public class SellingGoods {
             records[i] = scanner.nextInt();
         }
 //        System.out.println(new SellingGoods().isComputer(records));
-        List<int[]> subarrays = new ArrayList<>();
+        List<int[]> subArrays = new ArrayList<>();
         for (int i = 0; i < records.length; i++) {
             for (int j = i; j < records.length; j++) {
                 // 创建子数组
-                int[] subarray = new int[j - i + 1];
+                int[] subArray = new int[j - i + 1];
                 for (int k = i; k <= j; k++) {
-                    subarray[k - i] = records[k];
+                    subArray[k - i] = records[k];
                 }
                 // 将子数组添加到列表中
-                subarrays.add(subarray);
+                subArrays.add(subArray);
             }
-            for (int[] values : subarrays){
-                if (new SellingGoods().isComputer(values)) {
-                    count++;
-                }
-            }
-            System.out.println(count);
         }
+        int count = 0;
+        for (int[] values : subArrays) {
+            if (new SellingGoods().isComputer(values)) {
+                count++;
+            }
+        }
+        System.out.println(count);
+
     }
 
     /**
@@ -54,7 +55,7 @@ public class SellingGoods {
             if (records[i] == -1 && count < 1) {
                 return false;
             }
-            count = records[i] + count;
+            count += records[i];
         }
         //循环结束之后，count==0
         if (count == 0) {
